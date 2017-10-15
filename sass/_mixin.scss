@@ -1,0 +1,76 @@
+@mixin round-button($size: 50, $bg-color: white) {
+    background: $bg-color;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 0;
+    height: $size + px;
+    width: $size + px;
+    min-height: $size + px;
+    min-width: $size + px;
+    line-height: 100%;
+    box-shadow: none;
+    display: inline-block;
+    cursor:pointer;
+
+    &:hover, &:focus, &:active {
+        background-color: $bg-color;
+        box-shadow: none;
+        outline: 0;
+    }
+
+    .glyphicon {
+        top: 0
+    }
+}
+
+@mixin placeholderColor($input-text-color:#7c7b7b,$input-font-weight:400,$input-font-size:16px) {
+    &::-webkit-input-placeholder {color: $input-text-color; font-weight: $input-font-weight; font-size: $input-font-size;}
+    &:-moz-placeholder {color: $input-text-color; opacity: 1; font-weight: $input-font-weight; font-size: $input-font-size;}
+    &::-moz-placeholder {color: $input-text-color; opacity: 1; font-weight: $input-font-weight; font-size: $input-font-size;}
+    &:-ms-input-placeholder {color: $input-text-color; font-weight: $input-font-weight; font-size: $input-font-size;}
+    &:focus:-moz-placeholder {color:transparent; opacity: 1;}
+    &:focus::-moz-placeholder {color:transparent; opacity: 1;}
+    &:focus::-webkit-input-placeholder {color:transparent;}
+    &:focus:-ms-input-placeholder {color:transparent;}
+    &:focus::placeholder {color:transparent;}
+}
+
+
+@mixin clearfix {
+    &:after {
+        content: " ";
+        display: block;
+        clear: both;
+    }
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+
+ @mixin b($point) {
+    @if $point == desktop {
+        @media (max-width: 1199px) { @content ; }
+    }
+    @else if $point == tablet {
+        @media (max-width: 1023px) { @content ; }
+    }
+    @else if $point == phablet {
+        @media (min-width: 37.5em)  { @content ; }
+    }
+    @else if $point == mobile {
+        @media (max-width: 767px)  { @content ; }
+    }
+    @else if $point == min {
+        @media (max-width: 479px)  { @content ; }
+    }
+    @else if $point == mobile3x {
+        @media only screen and (-webkit-min-device-pixel-ratio: 3), only screen and (min-resolution: 3dppx), only screen and (min-resolution: 350dpi) { 
+            @content ;
+        }
+    }
+    @else {
+        @media (max-width: $point + 'px')  { @content ; }
+    }
+}

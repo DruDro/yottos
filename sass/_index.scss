@@ -1,0 +1,40 @@
+.article {
+    &-item {
+        padding: 0 40px 40px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 6px 16px 0 rgba(black, .15);
+        @include b(tablet) {
+            padding: 0 15px 30px;
+        }
+        &+& {
+            margin-top: 40px;
+        }
+    }
+}
+
+#more_posts {
+    width: 100%;
+}
+
+#ajax-posts {
+    margin-bottom: 40px;
+    .article-item {
+        margin-top: 40px;
+    }
+}
+
+.search-heading {
+    margin-top: 0!important;
+    padding-top: 0!important;
+}
+
+.article__title {
+    a {
+        border-bottom-color: transparent;
+        &:hover,
+        &:focus {
+            border-bottom-color: currentcolor;
+        }
+    }
+}

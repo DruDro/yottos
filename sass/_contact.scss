@@ -1,0 +1,132 @@
+#contactForm {
+    position: relative;
+    .input-field {
+        position: relative;
+        &.files {
+            margin-top: 40px;
+            .action-link {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+            @include b(tablet) {
+                margin-top: 20px;
+            }
+        }
+        &.submit-field {
+            margin: 40px 0 0;
+            @include b(tablet) {
+                margin-top: 20px;
+            }
+            .action-link {
+                width: 100%;
+                display: block;
+            }
+        }
+        input {
+            color: #424242;
+        }
+        &.required {
+            .mdl-textfield {
+                width: calc(100% - 160px);
+                display: inline-block;
+                vertical-align: middle;
+                @include b(tablet) {
+                    width: 100%;
+                }
+            }
+            .required {
+                width: 153px;
+                text-align: right;
+                display: inline-block;
+                vertical-align: middle;
+                @include b(tablet) {
+                    position: absolute;
+                    width: auto;
+                    top: 0;
+                    right: 0;
+                }
+                span {
+                    font-size: 14px;
+                    line-height: 28px;
+                    background: #eeeeee;
+                    color: #777777;
+                    display: inline-block;
+                    padding: 0 20px;
+                    font-family: "SF UI Display", sans-serif;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    @include b(tablet) {
+                        font-size: 12px;
+                        line-height: 20px;
+                        padding: 0 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#fileList {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 215px);
+    .file-item {
+        display: inline-block;
+        vertical-align: middle;
+        color: #777777;
+        font-family: 'SF UI Display', sans-serif;
+        background: #f0f0f0;
+        border-radius: 25px;
+        font-size: 0;
+        line-height: 0;
+        margin: 5px 10px;
+        padding: 0 3px 0 17px;
+        span {
+            font-size: 16px;
+            line-height: 30px;
+            margin-right: 12px;
+            vertical-align: middle;
+            display: inline-block;
+        }
+        .delete-file {
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+            background: #dadada;
+            text-decoration: none;
+            border-bottom: 0;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            &:hover {
+                i {
+                    color: #b00;
+                }
+            }
+            i {
+                font-size: 16px;
+                line-height: 24px;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.contact__footer {
+    margin: 50px -40px 0;
+    border-top: 1px solid #e0e0e0;
+    padding: 40px 40px 0;
+    @include b(tablet) {
+        margin: 20px -15px 0;
+        padding: 20px 15px 0;
+    }
+}
+
+input[type="file"] {
+    display: none !important;
+    &+label {
+        &:hover {}
+    }
+}

@@ -1,0 +1,321 @@
+.yo-header {
+    position: fixed;
+    width: 100%;
+    background: white;
+    z-index: 999;
+    top: 0;
+    transition: box-shadow .5s ease-in-out;
+    box-shadow: 0 0 0px 0 rgba(0, 0, 0, .5);
+
+
+    nav {
+        .navbar-brand {
+            padding: 0;
+            margin: 15px 15px 15px 0;
+            height: auto;
+            display: inline-block;
+
+            @media (max-width: 1025px) {
+                margin: 5px 5px 5px 0;
+            }
+        }
+
+        .breadcrumb {
+            position: relative;
+            display: inline-block;
+            height: 100%;
+            line-height: 80px;
+            margin: 0 0 0 10px;
+            vertical-align: middle;
+            font-size: 20px;
+            background: transparent;
+            padding: 0;
+
+            &:before {
+                content: "";
+                display: inline-block;
+                position: relative;
+                background: url(assets/images/arrow.svg) no-repeat;
+                background-size: contain;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                vertical-align: middle;
+                top: -2px;
+            }
+
+            @media (max-width: 1025px) {
+                line-height: 60px;
+            }
+
+            @media (max-width: 640px) {
+                display: none;
+            }
+        }
+
+        .navbar-right {
+            margin: auto;
+        }
+
+        .menu-btn {
+            margin: 15px 0;
+            @media (max-width: 1025px) {
+                margin: 5px 0;
+            }
+        }
+
+        .login-link {
+            font-size: 20px;
+            font-weight: 500;
+            color: #555;
+            height: 50px;
+            line-height: 50px;
+            margin-left: 8px;
+            padding: 0 8px;
+            text-transform: capitalize;
+        }
+    }
+
+    .nav-menu {
+        padding: 14px 0 0;
+
+        &:before {
+            right: 95px;
+            margin-right: 0;
+        }
+
+        @media (max-width: 480px) {
+            width: 100%;
+        }
+
+        @media (max-width: 480px),
+        (max-height: 480px) {
+            position: fixed;
+            top: 62px;
+            margin: 0;
+            max-height: calc(100vh - 60px);
+        }
+
+        @media (max-height: 480px) {
+            overflow-y: auto;
+        }
+
+        li {
+            font-weight: 500;
+            &.divider {
+                margin: 14px 0 0;
+            }
+
+            a {
+                font-weight: 500;
+                padding: 10px 20px;
+                cursor: pointer;
+                font-size: 18px;
+                font-family: "Helvetica Neue", Helvetica, 'Roboto', Arial, sans-serif;
+            }
+
+            &.language-switcher {
+                padding: 14px 20px;
+                position: relative;
+                font-size: 18px;
+                font-family: "Helvetica Neue", Helvetica, 'Roboto', Arial, sans-serif;
+                font-weight: 500;
+                line-height: 24px;
+
+                .mdl-button {
+                    position: absolute;
+                    padding: 0;
+                    top: 4px;
+                    right: 20px;
+                    font-size: 18px;
+                    font-weight: 500;
+                    height: 44px;
+                    line-height: 44px;
+                    color: #333;
+                    border-radius: 4px;
+                }
+
+                .language-list {
+                    right: 19px;
+                }
+            }
+        }
+    }
+
+    .glyphicon-menu-btn:after {
+        content: url(assets/images/ic_menu_black_24px.svg);
+    }
+
+    &.shady {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    }
+}
+
+.static-header {
+    background: #3a5edc;
+    border-radius: 3px;
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.15);
+    padding: 15px 40px 15px 30px;
+    height: 70px;
+    font-size: 0;
+    line-height: 0;
+    margin: 30px 0 0;
+    position: relative;
+    @include clearfix;
+    @include b(tablet) {
+        padding: 15px;
+    }
+    .menu {
+        display: inline-block;
+        vertical-align: middle;
+        width: calc(100% - 250px);
+        @include b(tablet) {
+            width: calc(100% - 200px);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: right;
+            li {
+                padding: 0;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 34px;
+                padding: 0 3px;
+                &:last-of-type {
+                    margin-right: 0;
+                }
+                a {
+                    color: #fff;
+                    font-size: 18px;
+                    line-height: 36px;
+                    font-weight: 500;
+                    font-family: 'Roboto', sans-serif;
+                }
+
+                &.flexMenu-viewMore>a {
+                    @include b(tablet) {
+                        font-size: 0;
+                        line-height: 0;
+                        &:hover,
+                        &:focus {
+                            border: 0;
+                            opacity: .8;
+                            text-decoration: none;
+                        }
+                        &:before {
+                            content: "⋮";
+                            font-size: 28px;
+                            top: 7px;
+                            position: relative;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .flexMenu-popup {
+        right: 0;
+        top: 55px;
+        width: 240px;
+        text-align: left !important;
+        background: #fff;
+        z-index: 9999;
+        border: 1px solid rgba(0, 0, 0, .15);
+        border-radius: 4px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        position: relative;
+        padding: 10px 0 !important;
+        white-space: normal;
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -7px;
+            right: 58px;
+            margin-right: -7px;
+            width: 0;
+            height: 0;
+            border-bottom: 7px solid white;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            @include b(tablet) {
+                right: 21px;
+            }
+        }
+        li {
+            display: block !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            a {
+                display: block;
+                margin: 0;
+                padding: 10px 15px;
+                color: #777 !important;
+                line-height: 24px!important;
+                &:hover {
+                    background: #eee;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .search {
+        display: inline-block;
+        vertical-align: middle;
+        width: 250px;
+        @include b(tablet) {
+            width: 200px
+        }
+        &-form {
+            position: relative;
+        }
+        &-submit {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            background: transparent;
+            color: #fff;
+            font-size: 0;
+            line-height: 40px;
+            border: 0;
+            padding: 0;
+            outline: 0;
+            border-radius: 50%;
+            -webkit-appearance: none;
+            transition: all .15s ease-in-out;
+            i {
+                font-size: 22px;
+                line-height: 40px;
+            }
+            &:hover {
+                background: rgba(black, .15);
+            }
+        }
+        &-field {
+            width: 100%;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            padding: 0 15px 0 55px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: normal;
+            color: #fff;
+            border-radius: 25px;
+            height: 40px;
+            font-family: 'SF UI Display', sans-serif;
+            transition: all .15s ease-in-out;
+            @include placeholderColor(rgba(#fff, .8));
+            &:focus {
+                background: rgba(black, .15);
+            }
+        }
+    }
+}

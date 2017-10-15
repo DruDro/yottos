@@ -1,0 +1,2 @@
+# yottos
+Yottos wordpress theme

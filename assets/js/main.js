@@ -119,75 +119,8 @@ function updateList() {
 }
 
 
-
-$(function() {
-    var $contactForm = $('#contactForm');
-
-    //AJAX
-    var request;
-
-    $contactForm.submit(function(event) {
-        event.preventDefault();
-        if (request) {
-            request.abort();
-        }
-        var fileInput = $('#files').prop('files')[0];
-        var myFormData = new FormData();
-        myFormData.append('files', fileInput);
-        $.ajax({
-            url: '../wp-content/themes/yo/fileUpload.php',
-            type: 'POST',
-            processData: false, // important
-            contentType: false, // important
-            dataType: 'json',
-            data: myFormData,
-            success: function(jsonData) {
-                if (jsonData.url) {
-                    alert(jsonData.url);
-                    document.getElementById('hFiles').value = jsonData.url;
-                }
-                var $inputs = $contactForm.find("input, textarea, button");
-
-                var serializedData = $contactForm.serialize();
-
-                $inputs.prop("disabled", true);
-
-                // Fire off the request to /form.php
-                request = $.ajax({
-                    url: "../wp-content/themes/yo/contactForm.php",
-                    type: "post",
-                    data: serializedData
-                });
-
-                // Callback handler that will be called on success
-                request.done(function(response, textStatus, jqXHR) {
-                    // Log a message to the console
-                    $contactForm.append(response);
-                });
-
-                // Callback handler that will be called on failure
-                request.fail(function(response, jqXHR, textStatus, errorThrown) {
-                    // Log the error to the console
-                    console.error(
-                        "The following error occurred: " +
-                        textStatus, errorThrown
-                    );
-                    $contactForm.append('<div>Ошибка</div>');
-                });
-
-                // Callback handler that will be called regardless
-                // if the request failed or succeeded
-                request.always(function() {
-                    // Reenable the inputs
-                    $inputs.prop("disabled", true).css("cursor", "not-allowed");
-                });
-                return false;
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status);
-                alert(xhr.responseText);
-                alert(thrownError);
-            }
-        });
+$(function(){
+    $(document).on("change","#files", function(){
+        updateList();
     });
 });

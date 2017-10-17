@@ -8,9 +8,15 @@
             </a>
         </nav>
         <div class="social-buttons">
-            <a href="#" class="social-button in" title="LinkedIn"><span>LinkedIn</span></a>
-            <a href="#" class="social-button vk" title="VKontakte"><span>VKontakte</span></a>
-            <a href="#" class="social-button fb" title="Facebook"><span>Facebook</span></a>
+            <?php if ( get_the_author_meta('linkedin') ) : ?>
+            <a href="<?php the_author_meta('linkedin'); ?>" target="_blank" class="social-button in" title="LinkedIn"><span>LinkedIn</span></a>
+            <?php endif; ?>
+            <?php if ( get_the_author_meta('vkontakte') ) : ?>
+            <a href="<?php the_author_meta('vkontakte'); ?>" target="_blank" class="social-button vk" title="VKontakte"><span>VKontakte</span></a>
+            <?php endif; ?>
+            <?php if ( get_the_author_meta('facebook') ) : ?>
+            <a href="<?php the_author_meta('facebook'); ?>" target="_blank" class="social-button fb" title="Facebook"><span>Facebook</span></a>
+            <?php endif; ?>
         </div>
     </div>
     <small>&copy;&nbsp;2006&nbsp;&ndash;&nbsp;2017&nbsp;YOTTOS</small>

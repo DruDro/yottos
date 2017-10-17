@@ -1,5 +1,8 @@
-#contactForm {
+.wpcf7-form {
     position: relative;
+    #hFiles {
+        display:none
+    }
     .input-field {
         position: relative;
         &.files {
@@ -25,6 +28,13 @@
         }
         input {
             color: #424242;
+        }
+        textarea {
+            min-height:100px;            
+            height:100px;
+                @include b(tablet) {
+                    min-height:200px;
+                }
         }
         &.required {
             .mdl-textfield {

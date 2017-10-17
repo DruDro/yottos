@@ -6504,48 +6504,56 @@ body {
   .article__title a:hover, .article__title a:focus {
     border-bottom-color: currentcolor; }
 
-#contactForm {
+.wpcf7-form {
   position: relative; }
-  #contactForm .input-field {
+  .wpcf7-form #hFiles {
+    display: none; }
+  .wpcf7-form .input-field {
     position: relative; }
-    #contactForm .input-field.files {
+    .wpcf7-form .input-field.files {
       margin-top: 40px; }
-      #contactForm .input-field.files .action-link {
+      .wpcf7-form .input-field.files .action-link {
         display: inline-block;
         vertical-align: middle;
         margin-right: 10px; }
       @media (max-width: 1023px) {
-        #contactForm .input-field.files {
+        .wpcf7-form .input-field.files {
           margin-top: 20px; } }
-    #contactForm .input-field.submit-field {
+    .wpcf7-form .input-field.submit-field {
       margin: 40px 0 0; }
       @media (max-width: 1023px) {
-        #contactForm .input-field.submit-field {
+        .wpcf7-form .input-field.submit-field {
           margin-top: 20px; } }
-      #contactForm .input-field.submit-field .action-link {
+      .wpcf7-form .input-field.submit-field .action-link {
         width: 100%;
         display: block; }
-    #contactForm .input-field input {
+    .wpcf7-form .input-field input {
       color: #424242; }
-    #contactForm .input-field.required .mdl-textfield {
+    .wpcf7-form .input-field textarea {
+      min-height: 100px;
+      height: 100px; }
+      @media (max-width: 1023px) {
+        .wpcf7-form .input-field textarea {
+          min-height: 200px; } }
+    .wpcf7-form .input-field.required .mdl-textfield {
       width: calc(100% - 160px);
       display: inline-block;
       vertical-align: middle; }
       @media (max-width: 1023px) {
-        #contactForm .input-field.required .mdl-textfield {
+        .wpcf7-form .input-field.required .mdl-textfield {
           width: 100%; } }
-    #contactForm .input-field.required .required {
+    .wpcf7-form .input-field.required .required {
       width: 153px;
       text-align: right;
       display: inline-block;
       vertical-align: middle; }
       @media (max-width: 1023px) {
-        #contactForm .input-field.required .required {
+        .wpcf7-form .input-field.required .required {
           position: absolute;
           width: auto;
           top: 0;
           right: 0; } }
-      #contactForm .input-field.required .required span {
+      .wpcf7-form .input-field.required .required span {
         font-size: 14px;
         line-height: 28px;
         background: #eeeeee;
@@ -6556,7 +6564,7 @@ body {
         font-weight: 400;
         text-transform: uppercase; }
         @media (max-width: 1023px) {
-          #contactForm .input-field.required .required span {
+          .wpcf7-form .input-field.required .required span {
             font-size: 12px;
             line-height: 20px;
             padding: 0 10px; } }

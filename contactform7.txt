@@ -1,0 +1,39 @@
+<div class="input-field required">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label for="uname" class="mdl-textfield__label">Имя</label>[text* uname class:mdl-textfield__input]
+  </div>
+  <div class="required"><span>обязательно</span></div>
+</div>
+<div class="input-field required"> 
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label for="email" class="mdl-textfield__label">E-Mail</label>[email* email class:mdl-textfield__input]
+  </div>
+  <div class="required"><span>обязательно</span></div>
+</div>
+<div class="input-field required"> 
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label for="phone" class="mdl-textfield__label">Телефон</label>[tel* phone class:mdl-textfield__input]
+  </div>
+  <div class="required"><span>обязательно</span></div>
+</div>
+<div class="input-field"> 
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label for="subject" class="mdl-textfield__label">Тема</label>[text* subject class:mdl-textfield__input]
+  </div>
+</div>
+<div class="input-field"> 
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label for="message" class="mdl-textfield__label">Текст сообщения</label>[textarea* message id:message class:mdl-textfield__input]
+  </div>
+</div>
+<div class="input-field files">
+  [file files id:files class:files][text hFiles id:hFiles]<label class="action-link btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" for="files">Прикрепить файл</label>
+  <div id="fileList"></div>
+</div>
+<div class="input-field submit-field">
+  [submit submit_form id:submit class:action-link class:mdl-button class:mdl-js-button class:mdl-button--raised class:mdl-js-ripple-effect class:mdl-button--accent]
+</div>
+<div class="contact__footer">
+  <p>*Зачем заполнять контактные данные, e-mail, телефон?</p>
+  <p>Мы считаем, что будет правильно дать вам обратную связь по вашей инициативе и держать вас в курсе о решении вашего вопроса!</p>
+</div>

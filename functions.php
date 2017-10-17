@@ -190,4 +190,17 @@ function wpb_custom_new_menu() {
   );
 }
 add_action( 'init', 'wpb_custom_new_menu' );
+
+
+function social_media_icons( $contactmethods ) {
+    // Add social media
+    $contactmethods['vkontakte'] = 'VKontakte link';
+    $contactmethods['facebook'] = 'Facebook link';
+    $contactmethods['linkedin'] = 'Linkedin link';
+
+    return $contactmethods;
+}
+add_filter('user_contactmethods','social_media_icons',10,1);
+
+
 ?>

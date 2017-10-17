@@ -17,7 +17,9 @@
     <h2 class="sidebar__item-caption">Популярные тэги</h2>
     <div class="sidebar__item-content sidebar__tags-list">
     <?php 
-        $tags = get_tags();
+        $tags = get_tags(array(
+            'number'=>30
+        ));
         foreach ( $tags as $tag ) {            
             echo '<a href="' . get_tag_link ($tag->term_id) . '" title="' . $tag->name . '" rel="tag">' . $tag->name . '</a>';
         }

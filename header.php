@@ -21,23 +21,14 @@
                     <span class="breadcrumb">Блог</span>
                     <div class="dropdown navbar-right">
                         <button class="round-button mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect dropdown-toggle menu-btn" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-btn"></span></button>
-                        <ul class="dropdown-menu nav-menu">
-                            <li class="list-item"><a href="advertisers.html">Для рекламодателей</a></li>
-                            <li class="list-item"><a href="webmasters.html">Для вебмастеров</a></li>
-                            <li class="list-item"><a href="#">Для интернет-пользователей</a></li>
-                            <li class="list-item"><a href="about.html">О YOTTOS</a></li>
-                            <li class="list-item"><a href="about.html#join">Хочу стать YO маркетологом</a></li>
-                            <li class="list-item"><a href="#">Блог Yottos</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown dropdown-submenu language-switcher">
-                                    
-                                    Language <span class="mdl-button mdl-js-button mdl-js-ripple-effect dropdown-toggle" data-toggle="dropdown">RU <span class="caret"></span></span>
-                                    <ul class="dropdown-menu language-list">
-                                        <li><a href="javascript:void(0);">RU</a></li>
-                                        <li><a href="javascript:void(0);">EN</a></li>
-                                    </ul>
-                            </li>
-                        </ul>
+                        <?php
+                            wp_nav_menu( array( 
+                                    'theme_location'    => 'top_dropdown', 
+                                    'container'         => false,
+                                    'menu_class'        =>  'dropdown-menu nav-menu'
+                                ) 
+                            ); 
+                        ?>
                         <a class="login-link navbar-link mdl-button mdl-js-button mdl-js-ripple-effect popup-link" href="#loginForm">Вход</a>
                     </div>
                 </nav>
@@ -47,8 +38,13 @@
             <div class="static-header">
                 <div class="search"><?php get_search_form();?></div>
                 <?php wp_nav_menu( array(
-                    'theme_location' => 'top',
-                    'menu_id'        => 'top-menu',
-                ) ); ?>               
+                        'theme_location'    => 'main_nav',
+                        'container_id'      => 'top-menu',
+                        'container_class'   => 'menu',
+                        'menu_id'           => '',
+                        'menu_class'        => ''
+                    ) 
+                ); 
+                ?>               
             </div>
         </div>

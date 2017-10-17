@@ -181,6 +181,13 @@ return $query;
 add_filter('pre_get_posts','SearchFilter');
 
 
-
-
+function wpb_custom_new_menu() {
+  register_nav_menus(
+    array(
+      'top_dropdown' => __( 'Top dropdown menu' ),
+      'main_nav' => __( 'Main navigation' )
+    )
+  );
+}
+add_action( 'init', 'wpb_custom_new_menu' );
 ?>

@@ -4,17 +4,12 @@
 		<main class="main">
 				<?php
 				if ( have_posts() ) :
-		            $args = array(
-		                    'post_type' => 'post',
-		                    'posts_per_page' => 3
-		            );
 
-		            $loop = new WP_Query($args);
-
-		            while ($loop->have_posts()) : $loop->the_post(); ?>
+		            while (have_posts()) : the_post(); ?>
 
 					<article class="article-item">
 		            
+
 		            <?php if ( has_post_thumbnail() ) { ?>
 		            <div class="article__thumb"><img src="<?php the_post_thumbnail_url(); ?>"></div>
 					<?php } ?>
@@ -44,8 +39,9 @@
 					?>
 		        	
 		        	</article>
-					<?php endwhile;
-        			wp_reset_postdata();
+					<?php 
+						endwhile;
+        					wp_reset_postdata();
 						endif;
 					?>			
 					<div id="ajax-posts"></div>

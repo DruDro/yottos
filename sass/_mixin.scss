@@ -10,9 +10,11 @@
     line-height: 100%;
     box-shadow: none;
     display: inline-block;
-    cursor:pointer;
+    cursor: pointer;
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
         background-color: $bg-color;
         box-shadow: none;
         outline: 0;
@@ -23,16 +25,46 @@
     }
 }
 
-@mixin placeholderColor($input-text-color:#7c7b7b,$input-font-weight:400,$input-font-size:16px) {
-    &::-webkit-input-placeholder {color: $input-text-color; font-weight: $input-font-weight; font-size: $input-font-size;}
-    &:-moz-placeholder {color: $input-text-color; opacity: 1; font-weight: $input-font-weight; font-size: $input-font-size;}
-    &::-moz-placeholder {color: $input-text-color; opacity: 1; font-weight: $input-font-weight; font-size: $input-font-size;}
-    &:-ms-input-placeholder {color: $input-text-color; font-weight: $input-font-weight; font-size: $input-font-size;}
-    &:focus:-moz-placeholder {color:transparent; opacity: 1;}
-    &:focus::-moz-placeholder {color:transparent; opacity: 1;}
-    &:focus::-webkit-input-placeholder {color:transparent;}
-    &:focus:-ms-input-placeholder {color:transparent;}
-    &:focus::placeholder {color:transparent;}
+@mixin placeholderColor($input-text-color:#7c7b7b, $input-font-weight:400, $input-font-size:16px) {
+    &::-webkit-input-placeholder {
+        color: $input-text-color;
+        font-weight: $input-font-weight;
+        font-size: $input-font-size;
+    }
+    &:-moz-placeholder {
+        color: $input-text-color;
+        opacity: 1;
+        font-weight: $input-font-weight;
+        font-size: $input-font-size;
+    }
+    &::-moz-placeholder {
+        color: $input-text-color;
+        opacity: 1;
+        font-weight: $input-font-weight;
+        font-size: $input-font-size;
+    }
+    &:-ms-input-placeholder {
+        color: $input-text-color;
+        font-weight: $input-font-weight;
+        font-size: $input-font-size;
+    }
+    &:focus:-moz-placeholder {
+        color: transparent;
+        opacity: 1;
+    }
+    &:focus::-moz-placeholder {
+        color: transparent;
+        opacity: 1;
+    }
+    &:focus::-webkit-input-placeholder {
+        color: transparent;
+    }
+    &:focus:-ms-input-placeholder {
+        color: transparent;
+    }
+    &:focus::placeholder {
+        color: transparent;
+    }
 }
 
 
@@ -49,28 +81,40 @@
 }
 
 
- @mixin b($point) {
-    @if $point == desktop {
-        @media (max-width: 1199px) { @content ; }
+@mixin b($point) {
+    @if $point==desktop {
+        @media (max-width: 1199px) {
+            @content ;
+        }
     }
-    @else if $point == tablet {
-        @media (max-width: 1023px) { @content ; }
+    @else if $point==tablet {
+        @media (max-width: 1023px) {
+            @content ;
+        }
     }
-    @else if $point == phablet {
-        @media (min-width: 37.5em)  { @content ; }
+    @else if $point==phablet {
+        @media (min-width: 37.5em) {
+            @content ;
+        }
     }
-    @else if $point == mobile {
-        @media (max-width: 767px)  { @content ; }
+    @else if $point==mobile {
+        @media (max-width: 767px) {
+            @content ;
+        }
     }
-    @else if $point == min {
-        @media (max-width: 479px)  { @content ; }
+    @else if $point==min {
+        @media (max-width: 479px) {
+            @content ;
+        }
     }
-    @else if $point == mobile3x {
-        @media only screen and (-webkit-min-device-pixel-ratio: 3), only screen and (min-resolution: 3dppx), only screen and (min-resolution: 350dpi) { 
+    @else if $point==mobile3x {
+        @media only screen and (-webkit-min-device-pixel-ratio: 3), only screen and (min-resolution: 3dppx), only screen and (min-resolution: 350dpi) {
             @content ;
         }
     }
     @else {
-        @media (max-width: $point + 'px')  { @content ; }
+        @media (max-width: $point + 'px') {
+            @content ;
+        }
     }
 }

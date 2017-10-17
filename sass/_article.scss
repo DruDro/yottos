@@ -8,19 +8,20 @@
     }
     &__title {}
     &__thumb {
+        background-color: #f7f7f7;
         background-size: cover;
         background-position: center top;
-        height: 350px;
         display: block;
         margin: 0 -40px 20px;
+        line-height: 0;
         @include b(tablet) {
             margin: 0 -15px 20px;
         }
-        @include b(mobile) {
-            height: 200px;
-        }
-        @include b(min) {
-            height: 150px;
+        img {
+            max-width: 100%;
+            max-height: 450px;
+            display:block;
+            margin: 0 auto;
         }
     }
     &__content {
@@ -28,11 +29,11 @@
         @include b(tablet) {
             padding: 23px 15px 0;
         }
-        .actions-block{
-            margin:0 0 50px;
-            .mdl-button{
-                &+.mdl-button{
-                    margin-left:20px;
+        .actions-block {
+            margin: 0 0 50px;
+            .mdl-button {
+                &+.mdl-button {
+                    margin-left: 20px;
                 }
             }
         }
@@ -229,6 +230,7 @@
                 font-size: 0;
                 line-height: 0;
                 height: 150px;
+                background-color:#e5e5e5;
                 background-size: cover;
                 background-position: center;
                 margin-bottom: 20px;

@@ -7,8 +7,9 @@
 		        <header class="article__header">
 		            <h1 class="article__title"><?php the_title(); ?></h1>
 		            
+
 		            <?php if ( has_post_thumbnail() ) { ?>
-		            <div class="article__thumb" style="background-image:url(<?php echo the_post_thumbnail_url(); ?> );"></div>
+		            <div class="article__thumb"><img src="<?php the_post_thumbnail_url(); ?>"></div>
 					<?php } ?>
 
 		            <div class="article__controls">
@@ -41,7 +42,8 @@
 		        	<div class="article__tags"><i class="material-icons">&#xE892;</i>
 		        		<?php
 						$tags = get_tags(array(
-						  'hide_empty' => false
+							'hide_empty' => false,
+        					'number'  => 5
 						));
 						foreach ($tags as $tag) {
 						  echo '<a href="' . get_tag_link ($tag->term_id) . '" title="' . $tag->name . '" rel="tag">' . $tag->name . '</a>';

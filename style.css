@@ -1,19 +1,3 @@
-/*
-Theme Name: Yo
-Theme URI: http://yottos.com/blog/yo
-Author: DruDro
-Author URI: http://zeewaka.com
-Description: A Wordpress blog theme
-Version: 2.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: two-columns, right-sidebar, flexible-width, custom-header, custom-menu, flat
-Text Domain: yo
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
-
 @charset "UTF-8";
 .clearfix:after {
   content: " ";
@@ -6637,23 +6621,22 @@ input[type="file"] {
       padding: 0 15px; } }
 .article__thumb,
 .main__thumb {
+  background-color: #f7f7f7;
   background-size: cover;
   background-position: center top;
-  height: 350px;
   display: block;
-  margin: 0 -40px 20px; }
+  margin: 0 -40px 20px;
+  line-height: 0; }
   @media (max-width: 1023px) {
     .article__thumb,
     .main__thumb {
       margin: 0 -15px 20px; } }
-  @media (max-width: 767px) {
-    .article__thumb,
-    .main__thumb {
-      height: 200px; } }
-  @media (max-width: 479px) {
-    .article__thumb,
-    .main__thumb {
-      height: 150px; } }
+  .article__thumb img,
+  .main__thumb img {
+    max-width: 100%;
+    max-height: 450px;
+    display: block;
+    margin: 0 auto; }
 .article__content,
 .main__content {
   padding: 23px 40px 0; }
@@ -6880,6 +6863,7 @@ input[type="file"] {
       font-size: 0;
       line-height: 0;
       height: 150px;
+      background-color: #e5e5e5;
       background-size: cover;
       background-position: center;
       margin-bottom: 20px;

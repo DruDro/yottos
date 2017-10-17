@@ -116,22 +116,12 @@ function updateList() {
     for (var i = 0; i < fileList.length; i++) {
         output.innerHTML += '<span class="file-item"><span>' + fileList.item(i).name + '</span><a href="#" class="delete-file"><i class="material-icons">&#xE5CD;</i></a></span>';
     }
-
 }
 
 
 
-
-
-
-
-
-
 $(function() {
-
     var $contactForm = $('#contactForm');
-
-
 
     //AJAX
     var request;
@@ -152,7 +142,7 @@ $(function() {
             dataType: 'json',
             data: myFormData,
             success: function(jsonData) {
-                if(jsonData.url){
+                if (jsonData.url) {
                     alert(jsonData.url);
                     document.getElementById('hFiles').value = jsonData.url;
                 }

@@ -6,8 +6,9 @@
 	        	<?php setPostViews(get_the_ID()); ?>
 		        <header class="article__header">
 		            <h1 class="article__title"><?php the_title(); ?></h1>
+
 		            <?php if ( has_post_thumbnail() ) { ?>
-		            <div class="article__thumb" style="background-image:url(<?php echo the_post_thumbnail_url(); ?> );"></div>
+		            <div class="article__thumb"><img src="<?php the_post_thumbnail_url(); ?>"></div>
 					<?php } ?>
 
 		        </header>

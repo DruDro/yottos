@@ -15,8 +15,9 @@
 
 					<article class="article-item">
 		            
+
 		            <?php if ( has_post_thumbnail() ) { ?>
-		            <div class="article__thumb" style="background-image:url(<?php echo the_post_thumbnail_url(); ?> );"></div>
+		            <div class="article__thumb"><img src="<?php the_post_thumbnail_url(); ?>"></div>
 					<?php } ?>
 
 		            <h2 class="article__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -29,17 +30,19 @@
 		            	<span class="comments"><i class="material-icons">&#xE24C;</i><span><?php comments_number( '0', '1', '%' ); ?></span></span>
 		            </div>
 
-		        	<div class="article__tags"><i class="material-icons">&#xE892;</i>
-		        		<?php
-						$tags = get_tags(array(
-						  'hide_empty' => false
-						));
-						foreach ($tags as $tag) {
-						  echo '<a href="' . get_tag_link ($tag->term_id) . '" title="' . $tag->name . '" rel="tag">' . $tag->name . '</a>';
+					<?php
+						$posttags = get_the_tags();
+						$count=0;
+						if ($posttags) {
+							echo '<div class="article__tags"><i class="material-icons">&#xE892;</i>';
+						    foreach($posttags as $tag) {
+						        $count++;
+						        echo '<a href="' . get_tag_link ($tag->term_id) . '" title="' . $tag->name . '" rel="tag">' . $tag->name . '</a>';
+						        if( $count >= 5 ) break; //change the number to adjust the count
+						    }
+						    echo '</div>';
 						}
-							      
-						?>
-		        	</div>
+					?>
 		        	</article>
 					<?php endwhile;
 						endif;

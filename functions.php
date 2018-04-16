@@ -118,58 +118,14 @@ function wpb_move_comment_field_to_bottom($fields)
 
 add_filter('comment_form_fields', 'wpb_move_comment_field_to_bottom');
 
-function estimated_reading_time() {
- 
+function estimated_reading_time() { 
     $post = get_post();
- 
-    $words = str_word_count( strip_tags( $post->post_content ) );
-    $minutes = floor( $words / 220 );
-    
-    $estimated_time = $minutes . ' минут' . (((substr($minutes, -1) == 1) && (substr($minutes, -2, 1) > 1)) ? 'а' : '') . (((2 <= substr($minutes, -1)) && (substr($minutes, -1) <= 4) && (substr($minutes, -2, 1) > 1)) ? 'ы':'');    
- 
+    $words = substr_count( "( strip_tags( $post->post_content ) ) ", ' ' );
+    $minutes = round( $words / 190);    
+    $estimated_time = $minutes . ' мин.';
     return $estimated_time;
 }
 
-function load_more_js(){
-    wp_enqueue_script( 'myloadmore', get_template_directory_uri() . '/assets/js/myloadmore.js' );     
-    $ajaxData = array(
-        'ajaxurl' => admin_url( 'admin-ajax.php' ),
-        'noposts' => __('No older posts found', 'yo')
-    );
-    wp_localize_script( 'myloadmore', 'php_vars', $ajaxData );
-}
-add_action('wp_enqueue_scripts', 'load_more_js', 4, 1);
-
-function more_post_ajax(){
-
-    $ppp = (isset($_POST["ppp"])) ? $_POST["ppp"] : 3;
-    $page = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
-
-    header("Content-Type: text/html");
-
-    $args = array(
-        'suppress_filters' => true,
-        'post_type' => 'post',
-        'posts_per_page' => $ppp,
-        'paged'    => $page,
-    );
-
-    $loop = new WP_Query($args);
-
-    $out = '';
-
-    if ($loop -> have_posts()) :  while ($loop -> have_posts()) : $loop -> the_post();
-        $out .=  '<article class="article-item"><div class="article__thumb" style="background-image:url(' . get_the_post_thumbnail_url() . ');"></div><h2 class="article__title">' . get_the_title() . '</h2><div class="article__excerpt">' . get_the_excerpt() . '</div><div class="article__controls"><span class="date"><i class="material-icons">&#xE916;</i><span>' . get_the_date() . '</span></span><span class="views"><i class="material-icons">&#xE417;</i><span>' . getPostViews(get_the_ID()) . '</span></span><span class="comments"><i class="material-icons">&#xE24C;</i><span>' . get_comments_number( '0', '1', '%' ) . '</span></span></div><div class="article__tags"><i class="material-icons">&#xE892;</i>' . get_the_tag_list() . '</div></article>';
-
-    endwhile;
-    endif;
-    wp_reset_postdata();
-    die($out);
-}
-
-
-add_action('wp_ajax_nopriv_more_post_ajax', 'more_post_ajax');
-add_action('wp_ajax_more_post_ajax', 'more_post_ajax');
 
 function SearchFilter($query) {
 if ($query->is_search) {
@@ -202,5 +158,10 @@ function social_media_icons( $contactmethods ) {
 }
 add_filter('user_contactmethods','social_media_icons',10,1);
 
+
+function new_excerpt_more($more) {
+    return '';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 ?>

@@ -9,8 +9,6 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php include 'login-form.php'; ?>
-<?php include 'signup-form.php'; ?>
     <div class="page-wrapper">
         <header class="yo-header">
             <div class="container">
@@ -29,7 +27,6 @@
                                 ) 
                             ); 
                         ?>
-                        <a class="login-link navbar-link mdl-button mdl-js-button mdl-js-ripple-effect popup-link" href="#loginForm">Вход</a>
                     </div>
                 </nav>
             </div>

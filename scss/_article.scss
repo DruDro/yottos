@@ -81,6 +81,12 @@
         @include b(tablet) {
             padding: 25px 15px 25px;
         }
+        .read-later-social {
+            position: relative;
+            top:0;
+            margin: 0 auto 50px;
+            text-align: left;
+        }
     }
     &__tags {
         margin-top: 24px;
@@ -313,47 +319,49 @@
                 background: #eeeeee;
             }
         }
+        @at-root .read-later-social {
+            position: absolute;
+            top: 6px;
+            right: 0;
+            text-align:center;
+            a {
+                display:inline-block;
+                vertical-align:middle;
+                font-size:0;
+                line-height:0;
+                width: 30px;
+                height:30px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                border:0;
+                margin: 0 3px;
+                &.fb{
+                    background-image: url(./assets/images/fb.png);
+                }
+                &.vk{
+                    background-image: url(./assets/images/vk.png);
+                }
+                &.tw{
+                    background-image: url(./assets/images/tw.png);
+                }
+                &.gp{
+                    background-image: url(./assets/images/gp.png);
+                }
+                &.in{
+                    background-image: url(./assets/images/in.png);
+                }
+            }
+            @include b(mobile) {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 20px 0;
+            }
+        }
     }
 }
-.read-later-social {
-    position: absolute;
-    top: 6px;
-    right: 0;
-    text-align:center;
-    a {
-        display:inline-block;
-        vertical-align:middle;
-        font-size:0;
-        line-height:0;
-        width: 30px;
-        height:30px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        border:0;
-        &.fb{
-            background-image: url(./assets/images/fb.png);
-        }
-        &.vk{
-            background-image: url(./assets/images/vk.png);
-        }
-        &.tw{
-            background-image: url(./assets/images/tw.png);
-        }
-        &.gp{
-            background-image: url(./assets/images/gp.png);
-        }
-        &.in{
-            background-image: url(./assets/images/in.png);
-        }
-    }
-    @include b(mobile) {
-        position: relative;
-        top: 0;
-        right: 0;
-        margin: 20px 0;
-    }
-}
+
 #readLater {
     display: none;
     background: #eeeeee;

@@ -6743,6 +6743,12 @@ input[type="file"] {
     .article__footer,
     .main__footer {
       padding: 25px 15px 25px; } }
+  .article__footer .read-later-social,
+  .main__footer .read-later-social {
+    position: relative;
+    top: 0;
+    margin: 0 auto 50px;
+    text-align: left; }
 .article__tags,
 .main__tags {
   margin-top: 24px; }
@@ -6981,39 +6987,39 @@ input[type="file"] {
     .article__postpone .js-read-later.open,
     .main__postpone .js-read-later.open {
       background: #eeeeee; }
-
-.read-later-social {
-  position: absolute;
-  top: 6px;
-  right: 0;
-  text-align: center; }
-  .read-later-social a {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 0;
-    line-height: 0;
-    width: 30px;
-    height: 30px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border: 0; }
-    .read-later-social a.fb {
-      background-image: url(./assets/images/fb.png); }
-    .read-later-social a.vk {
-      background-image: url(./assets/images/vk.png); }
-    .read-later-social a.tw {
-      background-image: url(./assets/images/tw.png); }
-    .read-later-social a.gp {
-      background-image: url(./assets/images/gp.png); }
-    .read-later-social a.in {
-      background-image: url(./assets/images/in.png); }
-  @media (max-width: 767px) {
-    .read-later-social {
-      position: relative;
-      top: 0;
-      right: 0;
-      margin: 20px 0; } }
+  .read-later-social {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    text-align: center; }
+    .read-later-social a {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0;
+      line-height: 0;
+      width: 30px;
+      height: 30px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      border: 0;
+      margin: 0 3px; }
+      .read-later-social a.fb {
+        background-image: url(./assets/images/fb.png); }
+      .read-later-social a.vk {
+        background-image: url(./assets/images/vk.png); }
+      .read-later-social a.tw {
+        background-image: url(./assets/images/tw.png); }
+      .read-later-social a.gp {
+        background-image: url(./assets/images/gp.png); }
+      .read-later-social a.in {
+        background-image: url(./assets/images/in.png); }
+    @media (max-width: 767px) {
+      .read-later-social {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 20px 0; } }
 
 #readLater {
   display: none;

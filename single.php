@@ -47,7 +47,7 @@
 						<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" title="Share on Facebook." class="fb"></a>
   <a href="http://vk.com/share.php?url=<?php the_permalink(); ?>&title=<?php the_title(); ?>&noparse=true" onclick="javascript:window.open(this.href,
   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="vk"></a>
-						<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>&title=<?php the_title(); ?>" onclick="javascript:window.open(this.href,
+						<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href,
   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="gp"></a>
 						<a href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" title="Tweet this!" class="tw"></a>
 						<a href="http://www.linkedin.com/shareArticle?mini=true&title=<?php the_title(); ?>&url=<?php the_permalink(); ?>" title="Share on LinkedIn" class="in"></a>
@@ -56,15 +56,12 @@
 		        	<?php if(has_tag()) { ?>
 		        	<div class="article__tags"><i class="material-icons">&#xE892;</i>
 		        		<?php
-						$tags = get_tags(array(
-							'hide_empty' => false,
-        					'number'  => 5
-						));
+						$tags = get_the_tags();
 						foreach ($tags as $tag) {
 						  echo '<a href="' . get_tag_link ($tag->term_id) . '" title="' . $tag->name . '" rel="tag">' . $tag->name . '</a>';
 						}
 
-						$postcats = get_categories();
+						$postcats = get_the_category();
 						$ccount=0;
 						if ($postcats) {
 							echo '<div class="article__tags"><i class="material-icons">&#xE892;</i>';

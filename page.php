@@ -4,56 +4,30 @@
 	    <article class="article">
 	        <?php if (have_posts()): while (have_posts()): the_post(); ?>
 	        	<?php setPostViews(get_the_ID()); ?>
-		        <header class="article__header">
-		            <h1 class="article__title"><?php the_title(); ?></h1>
-		            
 
-		            <?php if ( has_post_thumbnail() ) { ?>
-		            <div class="article__thumb"><img src="<?php the_post_thumbnail_url(); ?>"></div>
-					<?php } ?>
-
-		            <div class="article__controls">
-		            	<span class="date"><i class="material-icons">&#xE916;</i><span><?php echo get_the_date(); ?></span></span>
-		            	<span class="views"><i class="material-icons">&#xE417;</i><span><?php echo getPostViews(get_the_ID()); ?></span></span>
-						<?php if ( comments_open() || get_comments_number() ) : ?><a href="#comments" class="comments"><i class="material-icons">&#xE24C;</i><span><?php comments_number( '0', '1', '%' ); ?></span></a> <?php endif;?>
-		            </div>
-
-		            <div class="article__postpone">
-		            	<span class="time-to-read"><i class="material-icons">&#xE192;</i><span>Время на чтение:</span><span class="time"><?php echo estimated_reading_time(); ?></span></span>
-		            	<a href="#" class="js-read-later">Нет времени читать?</a>
-		            	<div id="readLater">
-			            	<a href="mailto:?subject=YOTTOS | <?php the_title(); ?>&amp;body=Почитай статью <?php the_permalink(); ?>" class="to-mail"><i><img src="<?php echo get_template_directory_uri() . '/assets/images/mail.svg'?>" alt=""></i><span>На почту</span></a>
-			            	<a href="https://share.flipboard.com/bookmarklet/popout?v=2&title=<?php the_title(); ?>&url=<?php the_permalink(); ?>" class="to-flipboard" onclick="event.preventDefault(); window.open(this.href, 'Popup', 'location,status,scrollbars,resizable');"><i><img src="<?php echo get_template_directory_uri() . '/assets/images/flipboard.svg'?>" alt=""></i><span>На Flipboard</span></a>
-			            	<a href="https://getpocket.com/edit?url=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="to-pocket"  onclick="event.preventDefault(); window.open(this.href, 'Popup', 'center,status,scrollbars,resizable)');"><i><img src="<?php echo get_template_directory_uri() . '/assets/images/pocket.svg'?>" alt=""></i><span>В Pocket</span></a>
-		            	</div>
-
-		        		<!-- Go to www.addthis.com/dashboard to customize your tools --> 
-		        		<div class="read-later-social">
-							<a href="#">g+</a>
-							<a href="#">fb</a>
-							<a href="#">pt</a>
-						</div>
-		            </div>
-
-		        </header>
 		        <main class="article__content">
 		            <?php the_content(); ?>
 		        </main>
 		        <footer class="article__footer">
-		        	<!-- Go to www.addthis.com/dashboard to customize your tools --> 
-		        	<div class="addthis_inline_share_toolbox"></div>
+				<div class="read-later-social">
+						<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" title="Share on Facebook." class="fb"></a>
+  <a href="http://vk.com/share.php?url=<?php the_permalink(); ?>&title=<?php the_title(); ?>&noparse=true" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="vk"></a>
+						<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="gp"></a>
+						<a href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" title="Tweet this!" class="tw"></a>
+						<a href="http://www.linkedin.com/shareArticle?mini=true&title=<?php the_title(); ?>&url=<?php the_permalink(); ?>" title="Share on LinkedIn" class="in"></a>
+						</div>
+					
 		        	<?php if(has_tag()) { ?>
 		        	<div class="article__tags"><i class="material-icons">&#xE892;</i>
 		        		<?php
-						$tags = get_tags(array(
-							'hide_empty' => false,
-        					'number'  => 5
-						));
+						$tags = get_the_tags();
 						foreach ($tags as $tag) {
 						  echo '<a href="' . get_tag_link ($tag->term_id) . '" title="' . $tag->name . '" rel="tag">' . $tag->name . '</a>';
 						}
 
-						$postcats = get_categories();
+						$postcats = get_the_category();
 						$ccount=0;
 						if ($postcats) {
 							echo '<div class="article__tags"><i class="material-icons">&#xE892;</i>';

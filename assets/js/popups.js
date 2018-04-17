@@ -19,4 +19,14 @@
         if(!$(e.target).is(".popup") && !$(e.target).parents().is(".popup")){            
             $(".popup-wrap").removeClass("show");
         }
+        
+        if(!$(e.target).is("#subscriptionDrop") && !$(e.target).parents().is("#subscriptionForm")){            
+            $('#subscriptionForm').removeClass('show');
+        }
+    });
+
+    $(document).on("click", "#subscriptionDrop", function(e){
+        e.stopPropagation();
+        console.log('igor');
+        $('#subscriptionForm').toggleClass('show');
     });

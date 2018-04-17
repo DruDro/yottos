@@ -5,10 +5,10 @@
 				<?php
 				if ( have_posts() ) :
 		            $args = array(
-						'nopaging'               => false,
-						'paged'                  => $paged,
-						'posts_per_page'         => '5',
-						'post_type'              => 'post'
+						'nopaging'              => false,
+						'paged'                 => $paged,
+						'post_type'             => 'post',
+						'posts_per_page'		=> 5
 		            );
 
 		            $loop = new WP_Query($args);
@@ -43,7 +43,7 @@
 						    }
 						    echo '</div>';
 						}
-						$postcats = get_categories();
+						$postcats = get_the_category();
 						$ccount=0;
 						if ($postcats) {
 							echo '<div class="article__tags"><i class="material-icons">&#xE892;</i>';

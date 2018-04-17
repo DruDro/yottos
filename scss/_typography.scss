@@ -241,6 +241,7 @@ a{
         display:block;
         max-width:100%;
         margin: 1em auto; 
+        height:auto;
     }
     blockquote {
         font-size:22px;
@@ -268,7 +269,7 @@ a{
         }
     }
 }
-a[rel="tag"]{
+a[rel="tag"],a[rel="category"]{
     display:inline-block;
     white-space:nowrap;
     max-width:100%;

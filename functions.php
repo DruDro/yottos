@@ -1,24 +1,16 @@
 <?php
 
-function remove_admin_login_header()
-{
-    remove_action('wp_head', '_admin_bar_bump_cb');
-}
+
+define('THEME_NAME', 'YottosBlog');
+define('THEME_INFO', 'http://yottos.com/');
 
 add_theme_support('post-thumbnails');
+add_theme_support('automatic-feed-links');
+add_editor_style();
 
-add_action('get_header', 'remove_admin_login_header');
-
-function isa_remove_jquery(&$scripts)
-{
-    if (!is_admin()) {
-        $scripts->remove('jquery');
-        $scripts->add('jquery', false, array(
-            'jquery-core'
-        ), '1.12.4');
-    }
-}
-add_filter('wp_default_scripts', 'isa_remove_jquery');
+// include Admin Files
+locate_template('/includes/admin/theme-settings.php', true);
+locate_template('/includes/admin/theme-admin.php', true);
 
 function enqueue_styles()
 {
@@ -164,4 +156,8 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+
+function add_async_defer_attribute($tag, $handle) {
+	return str_replace( ' src', ' async defer src', $tag );
+}
 ?>

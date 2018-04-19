@@ -157,18 +157,17 @@
     box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.15);
     padding: 15px 40px 15px 30px;
     height: 70px;
-    font-size: 0;
-    line-height: 0;
     margin: 30px 0 0;
     position: relative;
-    @include clearfix;
+    display:flex;
+    flex-flow: row nowrap;
+    align-items:center;
+    justify-content:stretch;
+    left:0;
     @include b(tablet) {
         padding: 15px;
     }
     .menu {
-        display: inline-block;
-        vertical-align: middle;
-        width: calc(100% - 250px);
         @include b(tablet) {
             width: calc(100% - 200px);
         }
@@ -182,7 +181,7 @@
                 display: inline-block;
                 vertical-align: middle;
                 margin-right: 34px;
-                padding: 0 3px;
+                padding: 0;
                 &:last-of-type {
                     margin-right: 0;
                 }
@@ -296,9 +295,7 @@
         }
     }
     .search {
-        display: inline-block;
-        vertical-align: middle;
-        width: 250px;
+        flex: 0 0 250px;
         @include b(tablet) {
             width: 200px
         }

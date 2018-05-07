@@ -6,7 +6,10 @@ define('THEME_INFO', 'http://yottos.com/');
 
 add_theme_support('post-thumbnails');
 add_theme_support('automatic-feed-links');
-add_editor_style();
+add_action('after_setup_theme', function(){
+	if ( ! is_admin() && ! current_user_can('manage_options') )
+		show_admin_bar( false );
+});
 
 // include Admin Files
 locate_template('/includes/admin/theme-settings.php', true);

@@ -21,6 +21,7 @@
     </div>
     <small>&copy;&nbsp;2006&nbsp;&ndash;&nbsp;2017&nbsp;YOTTOS</small>
 </footer>
+<?php wp_footer(); ?>
 </body>
 
 </html>

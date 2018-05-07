@@ -6505,6 +6505,9 @@ body {
       .paging .nav-next a i {
         vertical-align: bottom; }
 
+.logged-in.admin-bar .yo-header {
+  top: 32px; }
+
 .article-item {
   padding: 0 40px 40px;
   overflow: hidden;

@@ -6507,6 +6507,18 @@ body {
 
 .logged-in.admin-bar .yo-header {
   top: 32px; }
+  @media (max-width: 782px) {
+    .logged-in.admin-bar .yo-header {
+      top: 46px; } }
+  @media (max-width: 600px) {
+    .logged-in.admin-bar .yo-header {
+      top: 0;
+      z-index: 9999; } }
+
+@media (max-width: 600px) {
+  #wpadminbar {
+    top: 14px;
+    z-index: 9998; } }
 
 .article-item {
   padding: 0 40px 40px;
@@ -6676,6 +6688,31 @@ input[type="file"] {
     width: 100%;
     display: block;
     margin: 0 auto; }
+.article .size-full, .article iframe,
+.article .main iframe,
+.main .article iframe,
+.main .size-full,
+.main .article iframe,
+.article .main iframe,
+.main iframe {
+  width: calc(100% + 80px);
+  max-width: calc(100% + 80px) !important;
+  min-width: calc(100% + 80px);
+  margin: 1em -40px !important;
+  display: block;
+  height: auto; }
+  @media (max-width: 767px) {
+    .article .size-full, .article iframe,
+    .article .main iframe,
+    .main .article iframe,
+    .main .size-full,
+    .main .article iframe,
+    .article .main iframe,
+    .main iframe {
+      margin: 1em -15px !important;
+      width: calc(100% + 30px);
+      max-width: calc(100% + 30px) !important;
+      min-width: calc(100% + 30px); } }
 .article__content,
 .main__content {
   padding: 23px 40px 0; }
@@ -7249,7 +7286,7 @@ input[type="file"] {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: stretch;
+  justify-content: space-between;
   left: 0; }
   @media (max-width: 1023px) {
     .static-header {
@@ -7257,39 +7294,43 @@ input[type="file"] {
   @media (max-width: 1023px) {
     .static-header .menu {
       width: calc(100% - 200px); } }
-  .static-header .menu ul {
+  .static-header .menu .menu-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: right; }
-    .static-header .menu ul li {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%; }
+    .static-header .menu .menu-list li {
       padding: 0;
-      display: inline-block;
+      flex: 0 0 auto;
       vertical-align: middle;
       margin-right: 34px;
       padding: 0; }
-      .static-header .menu ul li:last-of-type {
+      .static-header .menu .menu-list li:last-of-type {
         margin-right: 0; }
-      .static-header .menu ul li a {
+      .static-header .menu .menu-list li a {
         color: #fff;
         font-size: 18px;
         line-height: 36px;
         font-weight: 500;
         font-family: 'Roboto', sans-serif; }
       @media (max-width: 1023px) {
-        .static-header .menu ul li.flexMenu-viewMore > a {
+        .static-header .menu .menu-list li.flexMenu-viewMore > a {
           font-size: 0;
           line-height: 0; }
-          .static-header .menu ul li.flexMenu-viewMore > a:hover, .static-header .menu ul li.flexMenu-viewMore > a:focus {
+          .static-header .menu .menu-list li.flexMenu-viewMore > a:hover, .static-header .menu .menu-list li.flexMenu-viewMore > a:focus {
             border: 0;
             opacity: .8;
             text-decoration: none; }
-          .static-header .menu ul li.flexMenu-viewMore > a:before {
+          .static-header .menu .menu-list li.flexMenu-viewMore > a:before {
             content: "⋮";
             font-size: 28px;
             top: 7px;
             position: relative; } }
-      .static-header .menu ul li.menu-item-has-children .sub-menu {
+      .static-header .menu .menu-list li.menu-item-has-children .sub-menu {
         position: absolute;
         opacity: 0;
         visibility: hidden;
@@ -7300,19 +7341,19 @@ input[type="file"] {
         border-radius: 4px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
         padding: 10px 0; }
-        .static-header .menu ul li.menu-item-has-children .sub-menu li {
+        .static-header .menu .menu-list li.menu-item-has-children .sub-menu li {
           display: block;
           text-align: center;
           margin: 0;
           padding: 0; }
-        .static-header .menu ul li.menu-item-has-children .sub-menu a {
+        .static-header .menu .menu-list li.menu-item-has-children .sub-menu a {
           color: #444;
           display: block;
           padding: 10px 15px; }
-          .static-header .menu ul li.menu-item-has-children .sub-menu a:hover {
+          .static-header .menu .menu-list li.menu-item-has-children .sub-menu a:hover {
             background: #eee;
             text-decoration: none; }
-      .static-header .menu ul li.menu-item-has-children:hover .sub-menu {
+      .static-header .menu .menu-list li.menu-item-has-children:hover .sub-menu {
         opacity: 1;
         visibility: visible; }
   .static-header .flexMenu-popup {

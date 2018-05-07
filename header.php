@@ -57,10 +57,10 @@
                 <div class="search"><?php get_search_form();?></div>
                 <?php wp_nav_menu( array(
                         'theme_location'    => 'main_nav',
-                        'container_id'      => 'top-menu',
+                        'container_id'      => 'topMenu',
                         'container_class'   => 'menu',
                         'menu_id'           => '',
-                        'menu_class'        => ''
+                        'menu_class'        => 'menu-list'
                     ) 
                 ); 
                 ?>               

@@ -37,25 +37,26 @@ function enqueue_material_icons()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_styles');
-
 function enqueue_scripts()
 {
+    wp_deregister_script( 'jquery' );
+    // Change the URL if you want to load a local copy of jQuery from your own server.
     wp_register_script('jquery', 'https://code.jquery.com/jquery-3.2.1.min.js', array(), null, true);
-    wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
+    wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'));
     wp_register_script('material', 'https://code.getmdl.io/1.3.0/material.min.js');
-    wp_register_script('flex_menu', 'https://cdnjs.cloudflare.com/ajax/libs/flexMenu/1.4.2/flexmenu.min.js');
+    wp_register_script('flex_menu', 'https://cdnjs.cloudflare.com/ajax/libs/flexMenu/1.5.0/flexmenu.min.js', array('jquery'));
     wp_enqueue_script('jquery');
+    wp_enqueue_script('flex_menu');
     wp_enqueue_script('bootstrap');
     wp_enqueue_script('material');
-    wp_enqueue_script('flex_menu');
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts', 2, 1);
 
 function yo_scripts()
 {
-    wp_register_script('yo-script', get_template_directory_uri() . '/assets/js/main.js');
+    wp_register_script('yo-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery'));
     wp_enqueue_script('yo-script');
-    wp_register_script('yo-popups', get_template_directory_uri() . '/assets/js/popups.js');
+    wp_register_script('yo-popups', get_template_directory_uri() . '/assets/js/popups.js', array('jquery'));
     wp_enqueue_script('yo-popups');
 }
 add_action('wp_enqueue_scripts', 'yo_scripts', 3, 1);

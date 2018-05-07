@@ -21,10 +21,10 @@ $(function() {
             }
         }
     };
-    $('#top-menu ul').flexMenu({
+    $('#topMenu .menu-list').flexMenu({
         linkText: 'Еще',
         linkTextAll: 'Еще',
-        cutoff: 1
+        cutoff: 4
     });
 
     $(document).on('mouseup touchend', function(e) {
@@ -102,6 +102,8 @@ $(function() {
         input.replaceWith(inputReplace);
         updateList();
     });
+
+
 });
 
 

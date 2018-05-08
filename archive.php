@@ -6,6 +6,12 @@
                 <?php
                 
 				if ( have_posts() ) :
+					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+					$args = array(
+						'paged'                 => $paged,
+						'post_type'             => 'post',
+						'posts_per_page'		=> 5
+					);
 		            while (have_posts()) : the_post(); ?>
 
 					<article class="article-item">
@@ -53,7 +59,15 @@
 					<?php endwhile;
         				wp_reset_postdata();
 						endif;
-					?>			
+						$nextp = get_next_posts_link( 'Предыдущие статьи <i class="material-icons">&#xE409;</i>' );
+						$prevp = get_previous_posts_link( '<i class="material-icons">&#xE408;</i> Следующие статьи' );
+						if($nextp || $prevp):
+							?>
+							<nav class="paging">
+								<div class="nav-previous"><?php echo $prevp ?></div>
+								<div class="nav-next"><?php echo $nextp ?></div>
+							</nav>
+							<?php endif;?>
 		</main>
 		<aside class="sidebar">		
 			<?php get_sidebar(); ?>

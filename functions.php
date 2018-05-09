@@ -44,10 +44,13 @@ function enqueue_scripts()
     wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
     wp_register_script('material', 'https://code.getmdl.io/1.3.0/material.min.js');
     wp_register_script('flex_menu', 'https://cdnjs.cloudflare.com/ajax/libs/flexMenu/1.4.2/flexmenu.min.js');
+    wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js');
+    
     wp_enqueue_script('jquery');
     wp_enqueue_script('bootstrap');
     wp_enqueue_script('material');
     wp_enqueue_script('flex_menu');
+    wp_enqueue_script('recaptcha');
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts', 2, 1);
 

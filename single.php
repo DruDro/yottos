@@ -20,23 +20,46 @@
 
 		            <div class="article__postpone">
 		            	<span class="time-to-read"><i class="material-icons">&#xE192;</i><span>Время на чтение:</span><span class="time"><?php echo estimated_reading_time(); ?></span></span>
-		            	<a href="#" class="js-read-later btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Нет времени читать?</a>
-		            	<div id="readLater">
+		            	<a href="#readLater" class="popup-link btn-default mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Нет времени читать?</a>
+						<div class="popup-wrap">
+							<form id="readLater" class="popup">
+								<a href="#" class="close-btn">&times;</a>
+								<h3>Отправить на почту</h3>
+								<div class="input-field required"> 
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label for="email" class="mdl-textfield__label">Ваш email</label><input type="email" name="email" class="mdl-textfield__input">
+									</div>
+								</div>
+								<div class="g-recaptcha" data-sitekey="6Lc4FFgUAAAAAG8DZesnBpfuSRIE1jq3oBJKjpcu"></div><!--your site key here-->
+								<div class="actions-block">
+									<button type="submit" class="mdl-button--accent mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Отправить</button>
+								</div>		
+							</form>
+													
+							<div id="thanks" class="popup">									
+								<h3>Спасибо, что подписались</h3>									
+								<p class="text-center"><i class="material-icons" style="font-size: 48px; color:#3a5edc">&#xE86C;</i></p>
+								<p>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. </p>
+								<div class="actions-block">
+									<a href="#" id="closeReadLater" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Закрыть</a>
+								</div>
+							</div>
+						</div>
+		            	<!-- <div id="readLater">
 
 			            	<a href="mailto:?subject=YOTTOS | <?php the_title(); ?>&amp;body=Почитай статью <?php the_permalink(); ?>" class="to-mail"><i><img src="<?php echo get_template_directory_uri() . '/assets/images/mail.svg'?>" alt=""></i><span>На почту</span></a>
-		            	</div>
+		            	</div> -->
 
-		        		<!-- Go to www.addthis.com/dashboard to customize your tools --> 
-		        		<div class="read-later-social">
-						<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" title="Share on Facebook." class="fb"></a>
-  <a href="http://vk.com/share.php?url=<?php the_permalink(); ?>&title=<?php the_title(); ?>&noparse=true" onclick="javascript:window.open(this.href,
+		        <div class="read-later-social">
+							<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" title="Share on Facebook." class="fb"></a>
+  						<a href="http://vk.com/share.php?url=<?php the_permalink(); ?>&title=<?php the_title(); ?>&noparse=true" onclick="javascript:window.open(this.href,
   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="vk"></a>
-						<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>&title=<?php the_title(); ?>" onclick="javascript:window.open(this.href,
+							<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>&title=<?php the_title(); ?>" onclick="javascript:window.open(this.href,
   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="gp"></a>
-						<a href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" title="Tweet this!" class="tw"></a>
-						<a href="http://www.linkedin.com/shareArticle?mini=true&title=<?php the_title(); ?>&url=<?php the_permalink(); ?>" title="Share on LinkedIn" class="in"></a>
+							<a href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" title="Tweet this!" class="tw"></a>
+							<a href="http://www.linkedin.com/shareArticle?mini=true&title=<?php the_title(); ?>&url=<?php the_permalink(); ?>" title="Share on LinkedIn" class="in"></a>
 						</div>
-		            </div>
+		      </div>
 
 		        </header>
 		        <main class="article__content">

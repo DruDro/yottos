@@ -6507,6 +6507,17 @@ body {
 
 .logged-in.admin-bar .yo-header {
   top: 32px; }
+  @media (max-width: 782px) {
+    .logged-in.admin-bar .yo-header {
+      top: 46px; } }
+  @media (max-width: 600px) {
+    .logged-in.admin-bar .yo-header {
+      z-index: 9999;
+      top: 0; } }
+@media (max-width: 600px) {
+  .logged-in.admin-bar #wpadminbar {
+    top: 14px;
+    z-index: 9998; } }
 
 .article-item {
   padding: 0 40px 40px;
@@ -7025,60 +7036,11 @@ input[type="file"] {
         right: 0;
         margin: 20px 0; } }
 
-#readLater {
-  display: none;
-  background: #eeeeee;
-  padding: 40px 30px; }
-  #readLater:after {
-    content: " ";
-    display: block;
-    clear: both; }
-  @media (max-width: 1023px) {
-    #readLater {
-      padding: 20px 15px; } }
-  #readLater a {
-    display: table;
-    font-size: 0;
-    line-height: 0;
-    width: 33.33%;
-    float: left;
-    border: 0 !important; }
-    @media (max-width: 767px) {
-      #readLater a {
-        width: 100%;
-        margin: 0 0 10px;
-        float: none; }
-        #readLater a:last-of-type {
-          margin: 0; } }
-    #readLater a:hover, #readLater a:focus {
-      opacity: .8;
-      text-decoration: none; }
-    #readLater a i {
-      display: table-cell;
-      text-align: center;
-      vertical-align: middle;
-      width: 48px;
-      height: 48px;
-      padding: 6px 9px; }
-    #readLater a span {
-      display: table-cell;
-      vertical-align: middle;
-      text-transform: uppercase;
-      color: #424242;
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: normal;
-      padding-left: 26px; }
-    #readLater a.to-mail i {
-      background: #2962ff; }
-    #readLater a.to-flipboard i {
-      background: #e12828; }
-    #readLater a.to-pocket i {
-      background: #ef3e56; }
-    #readLater a img {
-      display: inline-block;
-      max-width: 100%; }
+#thanks, #thanksSubscription {
+  display: none; }
+
+.g-recaptcha > div {
+  margin: 0 auto; }
 
 .sidebar__item {
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.15); }
@@ -7555,7 +7517,9 @@ input[type="file"] {
     font-size: 30px;
     line-height: 30px;
     text-align: center;
-    cursor: pointer; }
+    cursor: pointer;
+    text-decoration: none;
+    border: 0; }
   .popup-wrap h3 {
     text-align: center; }
   .popup-wrap .popup-link {
@@ -7577,8 +7541,11 @@ input[type="file"] {
   z-index: 99999; }
   .subscription #subscriptionDrop i, .subscription #subscriptionDrop span {
     vertical-align: middle; }
-.subscription form {
+.subscription form, .subscription #thanksSubscription {
   width: 300px;
+  max-width: 100%;
+  max-height: calc(100vh - 65px);
+  overflow: auto;
   background: #fff;
   position: fixed;
   right: -300px;
@@ -7590,18 +7557,42 @@ input[type="file"] {
   opacity: 0;
   visibility: hidden;
   padding: 30px; }
-  .subscription form.show {
+  .subscription form.show, .subscription #thanksSubscription.show {
     right: 75px;
     opacity: 1;
     visibility: visible; }
-  .subscription form .form-action {
+  .subscription form .form-action, .subscription #thanksSubscription .form-action {
     padding: 15px 0 0;
     margin: 0 -10px;
     display: flex;
     align-items: center;
     justify-content: stretch; }
-    .subscription form .form-action button, .subscription form .form-action input {
+    .subscription form .form-action button, .subscription form .form-action input, .subscription #thanksSubscription .form-action button, .subscription #thanksSubscription .form-action input {
       margin: 0 10px;
       flex: 1 1 auto; }
+  .subscription form .actions-block, .subscription #thanksSubscription .actions-block {
+    margin: 25px auto 10px;
+    text-align: center; }
+@media (max-width: 1023px) {
+  .subscription #subscriptionDrop {
+    transform: none;
+    top: auto;
+    bottom: 5px;
+    right: 5px; }
+  .subscription form, .subscription #thanksSubscription {
+    top: auto;
+    transform: none; }
+    .subscription form.show, .subscription #thanksSubscription.show {
+      right: 5px;
+      opacity: 1;
+      top: auto;
+      bottom: 65px;
+      transform: none;
+      visibility: visible; } }
+@media (max-width: 767px) {
+  .subscription .subscr-text {
+    display: none; }
+  .subscription #subscriptionDrop {
+    width: auto; } }
 
 /*# sourceMappingURL=style.css.map */

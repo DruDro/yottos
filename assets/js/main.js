@@ -90,13 +90,21 @@ $(function () {
             $(".popup-wrap").removeClass("show");
         }
     });
-
-    $('.js-read-later').click(function (e) {
+    $('#readLater').on("submit", function(e){
         e.preventDefault();
-        e.stopPropagation;
-        $('#readLater').slideToggle(300);
-        $(this).toggleClass('open');
-        return false;
+        $('#readLater').hide();
+        $('#thanks').show();
+    });
+    $('#closeReadLater').click(function(){
+        $('#readLater').closest('.popup-wrap').removeClass('show');
+    });
+    $('#subscriptionForm').on("submit", function(e){
+        e.preventDefault();
+        $('#subscriptionForm').hide();
+        $('#thanksSubscription').addClass('show');
+    });
+    $('#closeSubscription').click(function(){
+        $('.subscription').remove();
     });
     $(document).on("click", ".delete-file", function (e) {
         e.preventDefault();

@@ -100,5 +100,18 @@ body {
 .logged-in.admin-bar {
     .yo-header {
         top:32px;
+        @include b(782){
+            top:46px;
+        }
+        @include b(600){
+            z-index:9999;
+            top:0;
+        }
+    }
+    @include b(600){
+        #wpadminbar {
+            top:14px;
+            z-index:9998;
+        }
     }
 }

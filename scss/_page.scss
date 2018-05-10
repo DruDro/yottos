@@ -102,16 +102,16 @@ body {
         top:32px;
         @include b(782){
             top:46px;
-        } 
+        }
         @include b(600){
-            top:0;
             z-index:9999;
+            top:0;
         }
     }
-}
-#wpadminbar {
     @include b(600){
-        top: 14px;
-        z-index:9998;
+        #wpadminbar {
+            top:14px;
+            z-index:9998;
+        }
     }
 }

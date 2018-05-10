@@ -27,6 +27,5 @@
 
     $(document).on("click", "#subscriptionDrop", function(e){
         e.stopPropagation();
-        console.log('igor');
         $('#subscriptionForm').toggleClass('show');
     });

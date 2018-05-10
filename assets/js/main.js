@@ -1,18 +1,21 @@
 //=======YOTTOS JAVASCRIPT=======//
 var $ = jQuery;
 
-$(window).on("load resize", function() {
+$(window).on("load resize", function () {
     var fh = $('.footer').height();
     $('body').css("paddingBottom", fh);
 });
 
-$(function() {
+$(function () {
+    $("img").error(function () {
+        $(this).hide();
+    });
     /**
      * Check the validity state and update field accordingly.
      *
      * @public
      */
-    MaterialTextfield.prototype.checkValidity = function() {
+    MaterialTextfield.prototype.checkValidity = function () {
         if (this.input_.validity.valid) {
             this.element_.classList.remove(this.CssClasses_.IS_INVALID);
         } else {
@@ -27,7 +30,7 @@ $(function() {
         cutoff: 4
     });
 
-    $(document).on('mouseup touchend', function(e) {
+    $(document).on('mouseup touchend', function (e) {
         if (!$(e.target).closest('.flexMenu-popup, .flexMenu-popup *, .flexMenu-viewMore > a').length) {
             $('.flexMenu-popup').slideUp(300);
         }
@@ -35,13 +38,13 @@ $(function() {
 
     shadyHeader();
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         shadyHeader();
     });
 
 
     // Dropdown
-    $('.dropdown-submenu .dropdown-toggle').on("click", function(e) {
+    $('.dropdown-submenu .dropdown-toggle').on("click", function (e) {
 
         $(this).closest('.dropdown').toggleClass('open');
 
@@ -67,7 +70,7 @@ $(function() {
 
 
     // Popup
-    $('.popup-link').click(function(e) {
+    $('.popup-link').click(function (e) {
         e.preventDefault();
         var targetPopup = this.hash,
             $parentPopup = $(this).closest('.show');
@@ -78,24 +81,32 @@ $(function() {
         return false;
     });
 
-    $(document).on("click", ".close-btn", function() {
+    $(document).on("click", ".close-btn", function () {
         $(this).closest('.popup-wrap').removeClass('show');
     });
 
-    $(document).on("mouseup touchend", function(e) {
+    $(document).on("mouseup touchend", function (e) {
         if (!$(e.target).is(".popup") && !$(e.target).parents().is(".popup")) {
             $(".popup-wrap").removeClass("show");
         }
     });
-
-    $('.js-read-later').click(function(e) {
+    $('#readLater').on("submit", function(e){
         e.preventDefault();
-        e.stopPropagation;
-        $('#readLater').slideToggle(300);
-        $(this).toggleClass('open');
-        return false;
+        $('#readLater').hide();
+        $('#thanks').show();
     });
-    $(document).on("click", ".delete-file", function(e) {
+    $('#closeReadLater').click(function(){
+        $('#readLater').closest('.popup-wrap').removeClass('show');
+    });
+    $('#subscriptionForm').on("submit", function(e){
+        e.preventDefault();
+        $('#subscriptionForm').hide();
+        $('#thanksSubscription').addClass('show');
+    });
+    $('#closeSubscription').click(function(){
+        $('.subscription').remove();
+    });
+    $(document).on("click", ".delete-file", function (e) {
         e.preventDefault();
         var inputReplace = $('<input type="file" name="files" id="files" class="newInput" onchange="javascript:updateList();" multiple>');
         var input = $('#files');
@@ -121,8 +132,8 @@ function updateList() {
 }
 
 
-$(function(){
-    $(document).on("change","#files", function(){
+$(function () {
+    $(document).on("change", "#files", function () {
         updateList();
     });
 });

@@ -1,5 +1,6 @@
 
 .subscription {
+
     #subscriptionDrop{
         position: fixed;
         transform: translateY(-50%) rotate(-90deg);
@@ -13,8 +14,11 @@
             vertical-align:middle;
         }
     }
-    form {
+    form, #thanksSubscription {
         width: 300px;
+        max-width:100%;
+        max-height: calc(100vh - 65px);
+        overflow:auto;
         background:#fff;
         position:fixed;
         right:-300px;
@@ -41,6 +45,38 @@
                 margin: 0 10px;
                 flex: 1 1 auto;
             }
+        }
+        .actions-block {
+            margin: 25px auto 10px;
+            text-align: center;
+        }
+    }
+    @include b(tablet){
+        #subscriptionDrop{            
+            transform: none;
+            top: auto;
+            bottom: 5px;
+            right: 5px;
+        }
+        form, #thanksSubscription {
+            top: auto;
+            transform:none;
+            &.show{            
+                right:5px;
+                opacity:1;
+                top:auto;
+                bottom: 65px;
+                transform:none;
+                visibility:visible;
+            }
+        }
+    }
+    @include b(mobile){
+        .subscr-text {
+            display:none;
+        }
+        #subscriptionDrop{          
+            width:auto;
         }
     }
 }
